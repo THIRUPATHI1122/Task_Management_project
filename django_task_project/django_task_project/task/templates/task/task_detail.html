@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Detail</title>
+</head>
+<body>
+    <h1>{{ task.name }}</h1>
+    <h1>{{ task.title }}</h1>
+    <p>Description: {{ task.description }}</p>
+    <p>Remark: {{ task.remark }}</p>
+    <p>Priority: {{ task.get_priority_display }}</p>
+    <p>Status: {{ task.get_status_display }}</p>
+    <a href="{% url 'task_edit' task.id %}"><button>Edit</button></a>
+    <a href="{% url 'task_delete' task.id %}"><button>Delete</button></a>
+    <a href="{% url 'task_list' %}"><button>Back</button></a>
+</body>
+</html>

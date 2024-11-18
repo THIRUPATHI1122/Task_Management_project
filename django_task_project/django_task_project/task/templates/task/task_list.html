@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Task List</h1>
+    <form method="get">
+        {{ form.as_p }}
+        <button type="submit">Filter</button>
+    </form>
+    <ul>
+        {% for task in task %}
+            <li>
+                <strong><a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a></strong> -
+                Priority: {{ task.priority }} -
+                Status: {{ task.status }}
+                <a href="{% url 'task_edit' task.pk %}"><button>Edit</button></a>
+                <a href="{% url 'task_delete' task.pk %}"><button>Delete</button></a><br><br>
+            </li>
+        {% empty %}
+            <li>No tasks available.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'task_add' %}"><button>Add New Task</button></a>
+</body>
+</html>
+
+
+
